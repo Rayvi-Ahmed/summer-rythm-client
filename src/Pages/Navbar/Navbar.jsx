@@ -1,7 +1,6 @@
 import { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaUser } from 'react-icons/fa'
-import logo from '../../../assets/Images/image (2).ico'
 import { AuthContext } from '../../Provider/AuthProvider/AuthProvider';
 
 const Navbar = () => {
@@ -16,8 +15,8 @@ const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     return (
-        <div className="bg-pink-800">
-            <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
+        <div className="text-gray-800">
+            <div className="px-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
                 <div className="relative flex items-center justify-between">
                     <a
                         href="/"
@@ -25,8 +24,8 @@ const Navbar = () => {
                         title="Company"
                         className="inline-flex items-center"
                     >
-                        <img className="w-10" src={logo} alt="" />
-                        <span className="ml-2 text-xl font-bold tracking-wide text-gray-100 uppercase">
+                        <img className="w-10" src="" alt="" />
+                        <span className="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
                             Summer Rythm
                         </span>
                     </a>
@@ -36,7 +35,7 @@ const Navbar = () => {
                                 href="/"
                                 aria-label="Home"
                                 title="Home"
-                                className="font-medium tracking-wide  text-white  transition-colors duration-200 hover:text-pink-400"
+                                className="font-medium tracking-wide  text-gray-800  transition-colors duration-200 hover:text-blue-700"
                             >
                                 Home
                             </a>
@@ -46,48 +45,44 @@ const Navbar = () => {
                                 href="/blog"
                                 aria-label="Blog"
                                 title="Blog"
-                                className="font-medium tracking-wide text-white transition-colors duration-200 hover:text-pink-400"
+                                className="font-medium tracking-wide text-gray-800  transition-colors duration-200 hover:text-blue-700"
                             >
                                 Blog
                             </a>
                         </li>
 
-                        <Link to={'/allToys'}>
+                        <Link to={'/instructors'}>
                             <a
-                                href="/banner"
-                                aria-label="All toys"
-                                title="All toys"
-                                className="font-medium tracking-wide text-white transition-colors duration-200 hover:text-pink-400"
-                            >
-                                All Toys
+                                href="/"
+                                aria-label="instructors"
+                                title="instructors"
+                                className="font-medium tracking-wide text-gray-800 transition-colors duration-200 hover:text-blue-700"
+                            >Instructors
+                            </a>
+                        </Link>
+                        <Link to={'/classes'}>
+                            <a
+                                href="/"
+                                aria-label="classes"
+                                title="classes"
+                                className="font-medium tracking-wide text-gray-800 transition-colors duration-200 hover:text-blue-700"
+                            >Classes
                             </a>
                         </Link>
 
                         {user?.email &&
-                            <Link to={'/myToys'}>
+                            <Link to={'/dashboard'}>
                                 <a
-                                    href="/banner"
+                                    href="/dashboard"
                                     aria-label="My toys"
                                     title="My toys"
-                                    className="font-medium tracking-wide text-white transition-colors duration-200 hover:text-pink-400"
+                                    className="font-medium tracking-wide text-gray-800 transition-colors duration-200 hover:text-blue-700"
                                 >
-                                    My Toys
+                                    DashBoard
                                 </a>
                             </Link>
                         }
-                        {
-                            user?.email &&
-                            <Link to={'/addToys'}>
-                                <a
-                                    href="/banner"
-                                    aria-label="About us"
-                                    title="Add toys"
-                                    className="font-medium tracking-wide text-white transition-colors duration-200 hover:text-pink-400"
-                                >
-                                    Add Toys
-                                </a>
-                            </Link>
-                        }
+
                     </ul>
                     <ul className="flex items-center hidden space-x-8 lg:flex">
                         <li className="text-white">
@@ -95,7 +90,7 @@ const Navbar = () => {
                                 <>
                                     <button
                                         onClick={handleLogOut}
-                                        className="inline-flex items-center justify-center px-6 mx-2 h-12 font-medium tracking-wide text-black transition duration-200 rounded shadow-md bg-pink-400 hover:bg-pink-400 focus:shadow-outline focus:outline-none"
+                                        className="inline-flex items-center justify-center px-6 mx-2 h-12 font-medium tracking-wide text-black transition duration-200 rounded shadow-md bg-blue-700 hover:text-blue-700 focus:shadow-outline focus:outline-none"
                                     >
                                         Log out
                                     </button>
@@ -105,7 +100,7 @@ const Navbar = () => {
                                 <>
                                     <button
                                         to="/login"
-                                        className="inline-flex items-center justify-center px-6 mx-2 h-12 font-medium tracking-wide text-black transition duration-200 rounded shadow-md bg-pink-400 hover:bg-pink-700 focus:shadow-outline focus:outline-none"
+                                        className="inline-flex items-center justify-center px-6 mx-2 h-12 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-blue-700 hover:text-blue-700 focus:shadow-outline focus:outline-none"
                                     >
                                         <Link to="/login">Log In</Link>
                                     </button>
@@ -117,7 +112,7 @@ const Navbar = () => {
                                 to="/"
                                 aria-label="Name"
                                 title={user?.displayName}
-                                className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-pink-400"
+                                className="font-medium tracking-wide text-gray-800 transition-colors duration-200 hover:text-blue-700"
                             >
                                 {user?.photoURL ? (
                                     <img
@@ -181,7 +176,7 @@ const Navbar = () => {
                                                     <rect x="14" y="11" width="7" height="12" />
                                                 </svg>
                                                 <span className="ml-2 text-xl font-bold tracking-wide text-black uppercase">
-                                                    Kiddy Teddy
+                                                    Summer Rythm
                                                 </span>
                                             </a>
                                         </div>
@@ -218,7 +213,7 @@ const Navbar = () => {
                                                     href="/blog"
                                                     aria-label="Blog"
                                                     title="Blog"
-                                                    className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-pink-400"
+                                                    className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-blue-700"
                                                 >
                                                     Blog
                                                 </a>
@@ -228,7 +223,7 @@ const Navbar = () => {
                                                     href="/banner"
                                                     aria-label="All toy"
                                                     title="all toy"
-                                                    className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-pink-400"
+                                                    className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-blue-700"
                                                 >
                                                     All toy
                                                 </a>
@@ -244,7 +239,7 @@ const Navbar = () => {
                                                         </>
                                                         :
                                                         <>
-                                                            <button className="inline-flex items-center justify-center px-6 mx-2 h-12 font-medium tracking-wide text-black transition duration-200 rounded shadow-md bg-pink-400 hover:bg-pink-700 focus:shadow-outline focus:outline-none"><Link to='/login'>Log In</Link></button>
+                                                            <button className="inline-flex items-center justify-center px-6 mx-2 h-12 font-medium tracking-wide text-black transition duration-200 rounded shadow-md bg-pink-400 hover:text-blue-700 focus:shadow-outline focus:outline-none"><Link to='/login'>Log In</Link></button>
                                                         </>
                                                 }
 
@@ -254,7 +249,7 @@ const Navbar = () => {
                                                     to="/"
                                                     aria-label="Name"
                                                     title={user?.displayName}
-                                                    className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-400"
+                                                    className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-blue-700"
                                                 >
                                                     {user?.photoURL ?
                                                         <img
