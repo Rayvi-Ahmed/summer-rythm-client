@@ -8,6 +8,10 @@ import SignUp from "../../Pages/SignUp/SignUp";
 import Instructors from "../../Pages/Instructors/Instructors";
 import Classes from "../../Pages/Classes/Classes";
 import ErrorPage from "../../Errorpage/ErrorPage";
+import Dashboard from "../../Layout/Dashboard/Dashboard";
+import SelectedClasses from "../../Layout/Dashboard/DashboardPages/SelectedClases/SelectedClasses";
+import AddClass from "../../Layout/Dashboard/DashboardPages/addClasss/AddClass";
+import MyClass from "../../Layout/Dashboard/DashboardPages/MyClass/MyClass";
 const router = createBrowserRouter([
     {
         path: "/",
@@ -37,6 +41,25 @@ const router = createBrowserRouter([
             },
         ]
     },
+    {
+        path: 'dashboard',
+        element: <Dashboard></Dashboard>,
+        children: [
+            {
+                path: 'selectedClass',
+                element: <SelectedClasses></SelectedClasses>
+            },
+            {
+                path: 'addClass',
+                element: <AddClass></AddClass>
+
+            },
+            {
+                path: 'myClass',
+                element: <MyClass></MyClass>
+            }
+        ]
+    }
 ]);
 
 export default router;

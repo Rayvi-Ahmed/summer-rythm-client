@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
+import GoogleLogin from "../Login/GoogleLogin/GoogleLogin";
 
 const SignUp = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
@@ -22,7 +23,7 @@ const SignUp = () => {
                 updateStudentProfile(data.name, data.photoURL)
                     .then(() => {
                         const studentInfo = { name: data.name, email: data.email }
-                        fetch('http://localhost:5000/students', {
+                        fetch('http://localhost:5000/student', {
                             method: "POST",
                             headers: { "content-type": "application/json" },
                             body: JSON.stringify(studentInfo)
@@ -94,6 +95,7 @@ const SignUp = () => {
                             <button className="btn btn-primary">Sign Up</button>
                         </div>
                     </form>
+                    <GoogleLogin></GoogleLogin>
 
                 </div>
             </div>

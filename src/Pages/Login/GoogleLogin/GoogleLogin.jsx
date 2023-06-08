@@ -16,13 +16,13 @@ const GoogleLogin = () => {
             .then(result => {
                 const loggedInUser = result.user;
                 console.log(loggedInUser);
-                const saveUser = { name: loggedInUser.displayName, email: loggedInUser.email }
-                fetch('http://localhost:5000/users', {
+                const studentInfo = { name: loggedInUser.displayName, email: loggedInUser.email }
+                fetch('http://localhost:5000/student', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
                     },
-                    body: JSON.stringify(saveUser)
+                    body: JSON.stringify(studentInfo)
                 })
                     .then(res => res.json())
                     .then(() => {
