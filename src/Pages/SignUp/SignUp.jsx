@@ -83,6 +83,7 @@ const SignUp = () => {
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
+                            {/* TODO: Confirm Pass & Hide Button */}
                             <input {...register("password", { required: true, minLength: 6, pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/ })} type="password" placeholder="password" className="input input-bordered" />
                             {errors.password?.type === "required" && <span className="text-red-500">Password must required</span>}
                             {errors.password?.type === "minLength" && <span className="text-red-500">Password must be 6 charecter</span>}

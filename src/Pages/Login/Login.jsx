@@ -52,6 +52,7 @@ const Login = () => {
                                 </label>
                                 <input type="email" name="email" placeholder="email" className="input input-bordered" />
                             </div>
+                            {/* TODO:hide button will add */}
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Password</span>

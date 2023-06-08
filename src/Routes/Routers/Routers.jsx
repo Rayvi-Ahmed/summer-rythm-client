@@ -12,6 +12,7 @@ import Dashboard from "../../Layout/Dashboard/Dashboard";
 import SelectedClasses from "../../Layout/Dashboard/DashboardPages/SelectedClases/SelectedClasses";
 import AddClass from "../../Layout/Dashboard/DashboardPages/addClasss/AddClass";
 import MyClass from "../../Layout/Dashboard/DashboardPages/MyClass/MyClass";
+import AllStudent from "../../Layout/Dashboard/AllStudent/AllStudent";
 const router = createBrowserRouter([
     {
         path: "/",
@@ -57,6 +58,10 @@ const router = createBrowserRouter([
             {
                 path: 'myClass',
                 element: <MyClass></MyClass>
+            },
+            {
+                path: 'allStudent',
+                element: <AllStudent></AllStudent>
             }
         ]
     }
