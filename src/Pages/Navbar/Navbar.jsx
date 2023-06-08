@@ -51,7 +51,7 @@ const Navbar = () => {
                             </a>
                         </li>
 
-                        <Link to={'/instructors'}>
+                        <Link to={'/instructor'}>
                             <a
                                 href="/"
                                 aria-label="instructors"

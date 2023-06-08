@@ -8,23 +8,24 @@ import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
 const SignUp = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
-    const { createUser, updateUserProfile } = useContext(AuthContext)
+    const { createUser, updateStudentProfile } = useContext(AuthContext)
     const navigate = useNavigate()
 
 
     const onSubmit = data => {
+        console.log(data)
         createUser(data.email, data.password)
             .then(result => {
                 const loggedUser = result.user;
                 console.log(loggedUser)
 
-                updateUserProfile(data.name, data.photoURL)
+                updateStudentProfile(data.name, data.photoURL)
                     .then(() => {
-                        const saveUser = { name: data.name, email: data.email }
-                        fetch('http://localhost:5000/users', {
+                        const studentInfo = { name: data.name, email: data.email }
+                        fetch('http://localhost:5000/students', {
                             method: "POST",
                             headers: { "content-type": "application/json" },
-                            body: JSON.stringify(saveUser)
+                            body: JSON.stringify(studentInfo)
                         })
                             .then(res => res.json())
                             .then(data => {
@@ -33,7 +34,7 @@ const SignUp = () => {
                                     Swal.fire({
                                         position: 'top-end',
                                         icon: 'success',
-                                        title: 'User is created',
+                                        title: 'Student is created',
                                         showConfirmButton: false,
                                         timer: 1500
                                     });
@@ -45,6 +46,7 @@ const SignUp = () => {
 
                     .catch(error => console.log(error))
             })
+
     }
     return (
         <div className="hero min-h-screen bg-base-200">
@@ -80,9 +82,9 @@ const SignUp = () => {
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
-                            <input {...register("password", { required: true, maxLength: 20, minLength: 8, pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/ })} type="password" placeholder="password" className="input input-bordered" />
+                            <input {...register("password", { required: true, minLength: 6, pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/ })} type="password" placeholder="password" className="input input-bordered" />
                             {errors.password?.type === "required" && <span className="text-red-500">Password must required</span>}
-                            {errors.password?.type === "minLength" && <span className="text-red-500">Password must be 8 charecter</span>}
+                            {errors.password?.type === "minLength" && <span className="text-red-500">Password must be 6 charecter</span>}
                             {errors.password?.type === "pattern" && <span className="text-red-500">Password must have one uppercase,one lower case & one special charecter to secured mostly</span>}
                             <label className="label">
                                 <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
