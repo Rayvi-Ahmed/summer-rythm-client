@@ -8,7 +8,7 @@ const AllStudent = () => {
 
         queryKey: ['student'],
         queryFn: async () => {
-            const res = await axiosSecure('/student')
+            const res = await axiosSecure.get('/student')
             return res.data
         }
     })
@@ -46,6 +46,7 @@ const AllStudent = () => {
                             <th>SL.</th>
                             <th>Name</th>
                             <th>Email</th>
+                            <th>Role</th>
                             <th>Instructor</th>
                             <th>Admin</th>
                         </tr>
@@ -56,8 +57,16 @@ const AllStudent = () => {
                                 <th>{index + 1}</th>
                                 <td>{user.name}</td>
                                 <td>{user.email}</td>
-                                <td>{user.role === 'admin' ? <button className="btn btn-sm btn-disable">Admin</button> : <button onClick={() => handleupdate(user._id)} className="btn btn-sm btn-warning">Admin</button>}</td>
-                                <td>{user.profassion === 'instructor' ? <button className="btn btn-sm btn-disable">Instructor</button> : <button onClick={() => handleupdate(user._id)} className="btn btn-sm btn-primary">Instructor</button>}</td>
+                                <td onClick={() => handleupdate(user._id)}>{user.role === 'admin' ? 'admin' : 'student' && user.profassion === 'instructor' ? 'instructor' : 'student'}</td>
+
+
+                                <td >{user.role === 'admin' ? <button disabled="disabled" className="btn btn-sm btn-warning">Admin</button> :
+                                    <button onClick={() => handleupdate(user._id)} className="btn btn-sm btn-warning">Make admin</button>
+                                }</td>
+
+                                <td >{user.profassion === 'instructor' ? <button disabled="disabled" className="btn btn-sm btn-primary">Instructor</button> :
+                                    <button onClick={() => handleupdate(user._id)} className="btn btn-sm btn-primary">Make Instructor</button>
+                                }</td>
 
                             </tr>)
                         }

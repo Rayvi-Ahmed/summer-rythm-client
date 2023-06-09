@@ -1,9 +1,12 @@
 import { Link, Outlet } from "react-router-dom";
-import { FaUsers, FaRegAddressBook, FaHome, FaNewspaper, } from "react-icons/fa";
+import { FaUsers, FaRegAddressBook, FaHome, FaNewspaper, FaWallet, FaSchool } from "react-icons/fa";
+import useAdmin from "../../Hooks/UseAdminHooks/useAdmin";
+import useInstructor from "../../Hooks/useInstrctor/useInstructor";
 
 
 const Dashboard = () => {
-    const isAdmin = true
+    const [isAdmin] = useAdmin()
+    const [isInstructor] = useInstructor()
 
     return (
         <div className="drawer lg:drawer-open">
@@ -25,13 +28,23 @@ const Dashboard = () => {
                             <div className="divider"></div>
                         </> :
                             <>
-                                <li><Link to={'/'} ><FaHome></FaHome>My Home</Link></li>
-                                <li><Link><FaNewspaper></FaNewspaper>Blogs</Link></li>
+                                <li><Link to={'/dashboard/selectedClass'} ><FaSchool></FaSchool> My Selected class</Link></li>
+                                <li><Link ><FaWallet></FaWallet> Payment status</Link></li>
 
-                            </>
+                            </> &&
+                                isInstructor ? <>
+                                <li><Link to={'/dashboard/allStudent'}><FaUsers></FaUsers>Heto={'/dashboard/payment'}llo user</Link></li>
+                                <li><Link to={'/dashboard/myClass'}><FaRegAddressBook></FaRegAddressBook> My classes</Link> </li>
 
+                                <div className="divider"></div>
+                            </> :
+                                <>
+                                    <li><Link to={'/dashboard/selectedClass'} ><FaSchool></FaSchool> My Selected class</Link></li>
+                                    <li><Link to={'/dashboard/payment'}><FaWallet></FaWallet> Payment status</Link></li>
+
+                                </>
                     }
-                    <li><Link to={'/'} ><FaHome></FaHome>My Home</Link></li>
+                    <li><Link to={'/'} ><FaHome></FaHome>Home</Link></li>
                     <li><Link><FaNewspaper></FaNewspaper>Blogs</Link></li>
 
                 </ul>
