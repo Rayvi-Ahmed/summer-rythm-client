@@ -14,6 +14,7 @@ import AddClass from "../../Layout/Dashboard/DashboardPages/addClasss/AddClass";
 import MyClass from "../../Layout/Dashboard/DashboardPages/MyClass/MyClass";
 import AllStudent from "../../Layout/Dashboard/AllStudent/AllStudent";
 import Payment from "../../Layout/Dashboard/DashboardPages/Payment/Payment";
+import ManageClass from "../../Layout/Dashboard/ManageClass/ManageClass";
 const router = createBrowserRouter([
     {
         path: "/",
@@ -67,6 +68,10 @@ const router = createBrowserRouter([
             {
                 path: 'payment',
                 element: <Payment></Payment>
+            },
+            {
+                path: 'manageClass',
+                element: <ManageClass></ManageClass>
             }
         ]
     }

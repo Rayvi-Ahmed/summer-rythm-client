@@ -23,29 +23,26 @@ const Dashboard = () => {
                     {
                         isAdmin ? <>
                             <li><Link to={'/dashboard/allStudent'}><FaUsers></FaUsers>Manage Users</Link></li>
-                            <li><Link to={'/dashboard/addclass'}><FaPlusCircle></FaPlusCircle> Add classes</Link> </li>
-                            <li><Link to={'/dashboard/myClass'}><FaRegAddressBook></FaRegAddressBook> Manage classes</Link> </li>
+                            <li><Link to={'/dashboard/AddClass'}><FaPlusCircle></FaPlusCircle> Add Class</Link></li>
+                            <li><Link to={'/dashboard/manageClass'}><FaRegAddressBook></FaRegAddressBook> Manage classes</Link> </li>
 
                             <div className="divider"></div>
                         </> :
                             <>
-                                <li><Link to={'/dashboard/allStudent'}><FaUsers></FaUsers>Manage Users</Link></li>
-                                <li><Link to={'/dashboard/myClass'}><FaRegAddressBook></FaRegAddressBook> Manage  classes</Link> </li>
+                                <li><Link to={'/dashboard/myclass'}><FaUsers></FaUsers>My Classes</Link></li>
+                                <li><Link to={'/dashboard/myClass'}><FaRegAddressBook></FaRegAddressBook> Payment</Link> </li>
 
                             </> &&
 
                                 isInstructor ? <>
-                                <li><Link to={'/dashboard/allStudent'}><FaRegCalendarPlus></FaRegCalendarPlus> Add Class</Link></li>
+                                <li><Link to={'/dashboard/AddClass'}><FaPlusCircle></FaPlusCircle> Add Class</Link></li>
                                 <li><Link to={'/dashboard/myClass'}><FaRegAddressBook></FaRegAddressBook> My classes</Link> </li>
 
                                 <div className="divider"></div>
                             </> :
                                 <>
-                                    {/* <li><Link to={'/dashboard/selectedClass'} ><FaSchool></FaSchool> My Selected class</Link></li>
-                                    <li><Link to={'/dashboard/payment'}><FaWallet></FaWallet> Payment status</Link></li> */}
-                                    <li><Link to={'/dashboard/allStudent'}><FaUsers></FaUsers>Manage Users</Link></li>
-                                    <li><Link to={'/dashboard/myClass'}><FaRegAddressBook></FaRegAddressBook> Manager classes</Link> </li>
-                                    <li><Link to={'/dashboard/addclass'}><FaPlusCircle></FaPlusCircle> Manager classes</Link> </li>
+                                    <li><Link to={'/dashboard/myclass'}><FaUsers></FaUsers>My Classes</Link></li>
+                                    <li><Link to={'/dashboard/myClass'}><FaWallet></FaWallet> Payment</Link> </li>
 
 
                                 </>

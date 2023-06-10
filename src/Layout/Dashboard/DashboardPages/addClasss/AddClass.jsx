@@ -33,6 +33,7 @@ const AddClass = () => {
                         .then(data => {
                             console.log('posted new class', data.data)
                             if (data.data.insertedId) {
+                                reset()
                                 Swal.fire({
                                     position: 'top-end',
                                     icon: 'success',

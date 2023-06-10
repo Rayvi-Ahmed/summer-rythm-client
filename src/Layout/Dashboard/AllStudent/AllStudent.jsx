@@ -1,7 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import Swal from "sweetalert2";
 import useSecuireAxios from "../../../Hooks/SecuireAxios/useSecuireAxios";
-import { FaTrash } from "react-icons/fa";
 
 const AllStudent = () => {
     const [axiosSecure] = useSecuireAxios()
@@ -14,7 +13,7 @@ const AllStudent = () => {
         }
     })
 
-    const handleupdate = id => {
+    const handleupdateAdmin = id => {
         fetch(`http://localhost:5000/student/admin/${id}`, {
             method: "PATCH",
         })
@@ -26,17 +25,16 @@ const AllStudent = () => {
                     Swal.fire({
                         position: 'top-end',
                         icon: 'success',
-                        title: 'Admin / Instructor created',
+                        title: 'Admin created',
                         showConfirmButton: false,
                         timer: 1500
                     })
                 }
             })
-
     }
-    const handleDelete = (id) => {
-        fetch(`http://localhost:5000/student/admin/${id}`, {
-            method: "DELETE"
+    const handleupdateInstructor = id => {
+        fetch(`http://localhost:5000/student/instructor/${id}`, {
+            method: "PATCH",
         })
             .then(res => res.json())
             .then(data => {
@@ -46,7 +44,7 @@ const AllStudent = () => {
                     Swal.fire({
                         position: 'top-end',
                         icon: 'success',
-                        title: 'Admin / Instructor created',
+                        title: 'Instructor created',
                         showConfirmButton: false,
                         timer: 1500
                     })
@@ -54,7 +52,6 @@ const AllStudent = () => {
             })
 
     }
-
 
     return (
         <div className="w-full ml-5">
@@ -81,16 +78,15 @@ const AllStudent = () => {
                                 <th>{index + 1}</th>
                                 <td>{user.name}</td>
                                 <td>{user.email}</td>
-                                <td>{user.role === 'admin' ? 'admin' : 'student'}</td>
+                                <td>{user.role === 'admin' ? 'admin' : 'student' && user.role === 'instructor' ? 'instructor' : 'student'}</td>
 
                                 <td >{user.role === 'admin' ? <button disabled="disabled" className="btn btn-sm ">Admin</button> :
-                                    <button onClick={() => handleupdate(user._id, 'admin')} className="btn btn-sm btn-warning">Make admin</button>
+                                    <button onClick={() => handleupdateAdmin(user._id)} className="btn btn-sm btn-warning">Make admin</button>
                                 }</td>
 
                                 <td >{user.role === 'instructor' ? <button disabled="disabled" className="btn btn-sm btn-primary">Instructor</button> :
-                                    <button onClick={() => handleupdate(user._id, 'instructor')} className="btn btn-sm btn-primary">Make Instructor</button>
+                                    <button onClick={() => handleupdateInstructor(user._id,)} className="btn btn-sm btn-primary">Make Instructor</button>
                                 }</td>
-                                <td><button onClick={() => handleDelete(user._id)} className="btn btn-sm bg-red-600 text-lg text-white"><FaTrash></FaTrash></button></td>
 
                             </tr>)
                         }
