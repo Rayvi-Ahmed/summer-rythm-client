@@ -1,5 +1,5 @@
 import { Link, Outlet } from "react-router-dom";
-import { FaUsers, FaRegAddressBook, FaHome, FaNewspaper, FaWallet, FaSchool } from "react-icons/fa";
+import { FaUsers, FaRegAddressBook, FaHome, FaNewspaper, FaWallet, FaSchool, FaRegCalendarPlus, FaPlusCircle } from "react-icons/fa";
 import useAdmin from "../../Hooks/UseAdminHooks/useAdmin";
 import useInstructor from "../../Hooks/useInstrctor/useInstructor";
 
@@ -23,24 +23,30 @@ const Dashboard = () => {
                     {
                         isAdmin ? <>
                             <li><Link to={'/dashboard/allStudent'}><FaUsers></FaUsers>Manage Users</Link></li>
-                            <li><Link to={'/dashboard/myClass'}><FaRegAddressBook></FaRegAddressBook> My classes</Link> </li>
+                            <li><Link to={'/dashboard/addclass'}><FaPlusCircle></FaPlusCircle> Add classes</Link> </li>
+                            <li><Link to={'/dashboard/myClass'}><FaRegAddressBook></FaRegAddressBook> Manage classes</Link> </li>
 
                             <div className="divider"></div>
                         </> :
                             <>
-                                <li><Link to={'/dashboard/selectedClass'} ><FaSchool></FaSchool> My Selected class</Link></li>
-                                <li><Link ><FaWallet></FaWallet> Payment status</Link></li>
+                                <li><Link to={'/dashboard/allStudent'}><FaUsers></FaUsers>Manage Users</Link></li>
+                                <li><Link to={'/dashboard/myClass'}><FaRegAddressBook></FaRegAddressBook> Manage  classes</Link> </li>
 
                             </> &&
+
                                 isInstructor ? <>
-                                <li><Link to={'/dashboard/allStudent'}><FaUsers></FaUsers>Heto={'/dashboard/payment'}llo user</Link></li>
+                                <li><Link to={'/dashboard/allStudent'}><FaRegCalendarPlus></FaRegCalendarPlus> Add Class</Link></li>
                                 <li><Link to={'/dashboard/myClass'}><FaRegAddressBook></FaRegAddressBook> My classes</Link> </li>
 
                                 <div className="divider"></div>
                             </> :
                                 <>
-                                    <li><Link to={'/dashboard/selectedClass'} ><FaSchool></FaSchool> My Selected class</Link></li>
-                                    <li><Link to={'/dashboard/payment'}><FaWallet></FaWallet> Payment status</Link></li>
+                                    {/* <li><Link to={'/dashboard/selectedClass'} ><FaSchool></FaSchool> My Selected class</Link></li>
+                                    <li><Link to={'/dashboard/payment'}><FaWallet></FaWallet> Payment status</Link></li> */}
+                                    <li><Link to={'/dashboard/allStudent'}><FaUsers></FaUsers>Manage Users</Link></li>
+                                    <li><Link to={'/dashboard/myClass'}><FaRegAddressBook></FaRegAddressBook> Manager classes</Link> </li>
+                                    <li><Link to={'/dashboard/addclass'}><FaPlusCircle></FaPlusCircle> Manager classes</Link> </li>
+
 
                                 </>
                     }

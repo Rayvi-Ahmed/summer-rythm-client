@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import Swal from "sweetalert2";
 import useSecuireAxios from "../../../Hooks/SecuireAxios/useSecuireAxios";
+import { FaTrash } from "react-icons/fa";
 
 const AllStudent = () => {
     const [axiosSecure] = useSecuireAxios()
@@ -15,7 +16,7 @@ const AllStudent = () => {
 
     const handleupdate = id => {
         fetch(`http://localhost:5000/student/admin/${id}`, {
-            method: "PATCH"
+            method: "PATCH",
         })
             .then(res => res.json())
             .then(data => {
@@ -33,6 +34,28 @@ const AllStudent = () => {
             })
 
     }
+    const handleDelete = (id) => {
+        fetch(`http://localhost:5000/student/admin/${id}`, {
+            method: "DELETE"
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.modifiedCount) {
+                    refetch()
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: 'Admin / Instructor created',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
+            })
+
+    }
+
+
     return (
         <div className="w-full ml-5">
             <div>
@@ -49,6 +72,7 @@ const AllStudent = () => {
                             <th>Role</th>
                             <th>Instructor</th>
                             <th>Admin</th>
+                            <th>Delete</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -57,16 +81,16 @@ const AllStudent = () => {
                                 <th>{index + 1}</th>
                                 <td>{user.name}</td>
                                 <td>{user.email}</td>
-                                <td onClick={() => handleupdate(user._id)}>{user.role === 'admin' ? 'admin' : 'student' && user.profassion === 'instructor' ? 'instructor' : 'student'}</td>
+                                <td>{user.role === 'admin' ? 'admin' : 'student'}</td>
 
-
-                                <td >{user.role === 'admin' ? <button disabled="disabled" className="btn btn-sm btn-warning">Admin</button> :
-                                    <button onClick={() => handleupdate(user._id)} className="btn btn-sm btn-warning">Make admin</button>
+                                <td >{user.role === 'admin' ? <button disabled="disabled" className="btn btn-sm ">Admin</button> :
+                                    <button onClick={() => handleupdate(user._id, 'admin')} className="btn btn-sm btn-warning">Make admin</button>
                                 }</td>
 
-                                <td >{user.profassion === 'instructor' ? <button disabled="disabled" className="btn btn-sm btn-primary">Instructor</button> :
-                                    <button onClick={() => handleupdate(user._id)} className="btn btn-sm btn-primary">Make Instructor</button>
+                                <td >{user.role === 'instructor' ? <button disabled="disabled" className="btn btn-sm btn-primary">Instructor</button> :
+                                    <button onClick={() => handleupdate(user._id, 'instructor')} className="btn btn-sm btn-primary">Make Instructor</button>
                                 }</td>
+                                <td><button onClick={() => handleDelete(user._id)} className="btn btn-sm bg-red-600 text-lg text-white"><FaTrash></FaTrash></button></td>
 
                             </tr>)
                         }
