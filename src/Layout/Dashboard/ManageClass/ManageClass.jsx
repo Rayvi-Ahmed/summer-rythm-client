@@ -95,11 +95,10 @@ const ManageClass = () => {
                                     <button onClick={() => handleupdateDeny(cls._id)} className="btn btn-sm btn-warning">Deny</button>
                                 }</td>
 
-                                {/* 
-                                <td>{cls.status === 'denied' ? 
-                                <Link></Link>
-                                
-                               }</td> */}
+
+                                <td>{cls.feedback}</td>
+
+
 
 
 
