@@ -2,6 +2,7 @@ import { useContext, } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../../Provider/AuthProvider/AuthProvider";
+import useStudent from "../../../Hooks/useStudent/useStudent";
 
 const ApproveCladdCard = ({ course }) => {
     console.log(course)
@@ -9,18 +10,17 @@ const ApproveCladdCard = ({ course }) => {
     const { user } = useContext(AuthContext)
     const navigate = useNavigate()
     const location = useLocation()
+
     const { _id, courseName, name, Imge, seat, price } = course
 
 
-    const handleClassBook = booked => {
-        console.log(booked)
-
+    const handleClassBook = course => {
         if (user && user.email) {
             const addCouese = { courseId: _id, name, courseName, Image: Imge, seat, price, email: user.email }
 
             fetch('http://localhost:5000/booked', {
                 method: "POST",
-                headers: { "content-type": "application.json" },
+                headers: { "content-type": "application/json" },
                 body: JSON.stringify(addCouese)
             })
                 .then(res => res.json())
@@ -34,22 +34,23 @@ const ApproveCladdCard = ({ course }) => {
                             showConfirmButton: false,
                             timer: 1500
                         })
-                    } else {
-                        Swal.fire({
-                            title: 'Please login first to cart class?',
-                            text: "You won't be able to revert this!",
-                            icon: 'warning',
-                            showCancelButton: true,
-                            confirmButtonColor: '#3085d6',
-                            cancelButtonColor: '#d33',
-                            confirmButtonText: 'Login now!'
-                        }).then((result) => {
-                            if (result.isConfirmed) {
-                                navigate('/login', { state: { from: location } })
-                            }
-                        })
                     }
                 })
+        }
+        else {
+            Swal.fire({
+                title: 'Please login first to cart class?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Login now!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    navigate('/login', { state: { from: location } })
+                }
+            })
         }
 
     }
@@ -80,8 +81,14 @@ const ApproveCladdCard = ({ course }) => {
                         <p>Price:${price}</p>
                     </div>
                     <div className="card-actions justify-center">
-
                         <button onClick={() => handleClassBook(course)} className="btn btn-primary">Select</button>
+
+
+                        {
+                            // student.role === 'admin' || student.role === 'instructor' ? <button className="btn btn-disabled">Select</button> :
+
+                            //     <button onClick={() => handleClassBook(course)} className="btn btn-primary">Select</button>
+                        }
                     </div>
                 </div >
 
