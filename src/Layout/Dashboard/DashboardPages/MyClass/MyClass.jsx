@@ -1,5 +1,6 @@
 import { FaDollarSign, FaMoneyBill, FaTrash } from "react-icons/fa";
 import useBooked from "../../../../Hooks/useBooked/useBooked";
+import { Link } from "react-router-dom";
 
 const MyClass = () => {
     const [booked] = useBooked()
@@ -33,7 +34,15 @@ const MyClass = () => {
                                 <td>${user.price}</td>
                                 <td><button className="btn btn-sm bg-purple-500 text-xl text-white font-semibold"><FaDollarSign></FaDollarSign></button></td>
 
-                                <td><button className="btn btn-sm bg-red-500 text-white text-xl "><FaTrash></FaTrash></button></td>
+                                <Link to={'/payment'}>
+
+                                    <td>
+
+                                        <button className="btn btn-sm bg-red-500 text-white text-xl "><FaTrash></FaTrash></button>
+
+                                    </td>
+
+                                </Link>
 
                             </tr>)
                         }
