@@ -26,8 +26,8 @@ const AddClass = () => {
                 console.log(images)
                 if (images.success) {
                     const imgUrl = images.data.display_url;
-                    const { name, email, seat, status, price } = data
-                    const addedClass = { name, email, seat, status, price: parseFloat(price), Imge: imgUrl }
+                    const { name, courseName, email, seat, status, price } = data
+                    const addedClass = { name, courseName, email, seat, status, price: parseFloat(price), Imge: imgUrl }
                     console.log(addedClass)
                     axiosSecure.post('/classes', addedClass)
                         .then(data => {
@@ -48,10 +48,11 @@ const AddClass = () => {
                 }
             })
     };
-
-
     return (
         <div className="w-full px-10">
+            <div className='text-center font-bold text-xl'>
+                <h1>Add classes</h1>
+            </div>
 
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="flex my-4 items-center justify-center gap-4">
@@ -61,6 +62,14 @@ const AddClass = () => {
                         </label>
                         <input defaultValue={user?.displayName} type="text"
                             {...register("name", { required: true, maxLength: 120 })}
+                            className="input input-bordered w-full " />
+                    </div>
+                    <div className="form-control w-full mb-4">
+                        <label className="label">
+                            <span className="label-text font-semibold">class Name</span>
+                        </label>
+                        <input placeholder='class name' type="text"
+                            {...register("courseName", { required: true, maxLength: 120 })}
                             className="input input-bordered w-full " />
                     </div>
                     <div className="form-control w-full mb-4">
@@ -77,7 +86,7 @@ const AddClass = () => {
                         <label className="label">
                             <span className="label-text font-semibold">Available Seat</span>
                         </label>
-                        <input placeholder='Add the instructor name' type="number"
+                        <input placeholder='please write the available seat' type="number"
                             {...register("seat", { required: true, maxLength: 120 })}
                             className="input input-bordered w-full " />
                     </div>
@@ -101,7 +110,7 @@ const AddClass = () => {
                         <label className="label">
                             <span className="label-text font-semibold">Price*</span>
                         </label>
-                        <input type="number" {...register("price", { required: true })} placeholder="Type here" className="input input-bordered w-full " />
+                        <input type="number" {...register("price", { required: true })} placeholder="Price" className="input input-bordered w-full " />
                     </div>
                 </div>
 

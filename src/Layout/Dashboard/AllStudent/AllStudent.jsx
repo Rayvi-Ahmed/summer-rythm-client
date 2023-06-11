@@ -67,9 +67,8 @@ const AllStudent = () => {
                             <th>Name</th>
                             <th>Email</th>
                             <th>Role</th>
-                            <th>Instructor</th>
                             <th>Admin</th>
-                            <th>Delete</th>
+                            <th>Instructor</th>
                         </tr>
                     </thead>
                     <tbody>

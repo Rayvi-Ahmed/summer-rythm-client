@@ -23,11 +23,13 @@ const Dashboard = () => {
                     {
                         isAdmin ? <>
                             <li><Link to={'/dashboard/allStudent'}><FaUsers></FaUsers>Manage Users</Link></li>
-                            <li><Link to={'/dashboard/AddClass'}><FaPlusCircle></FaPlusCircle> Add Class</Link></li>
+                            {/* <li><Link to={'/dashboard/AddClass'}><FaPlusCircle></FaPlusCircle> Add Class</Link></li> */}
                             <li><Link to={'/dashboard/manageClass'}><FaRegAddressBook></FaRegAddressBook> Manage classes</Link> </li>
 
                             <div className="divider"></div>
-                        </> :
+                        </>
+
+                            :
                             <>
                                 <li><Link to={'/dashboard/myclass'}><FaUsers></FaUsers>My Classes</Link></li>
                                 <li><Link to={'/dashboard/myClass'}><FaRegAddressBook></FaRegAddressBook> Payment</Link> </li>
