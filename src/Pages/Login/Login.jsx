@@ -3,6 +3,7 @@ import Swal from 'sweetalert2'
 import { useContext } from 'react';
 import GoogleLogin from './GoogleLogin/GoogleLogin';
 import { AuthContext } from '../../Provider/AuthProvider/AuthProvider';
+import { Helmet } from 'react-helmet-async';
 
 const Login = () => {
     const { signIn } = useContext(AuthContext);
@@ -39,6 +40,9 @@ const Login = () => {
     return (
         <>
             <div className="hero min-h-screen bg-base-200">
+                < Helmet >
+                    <title>Summer Rythm | Login</title>
+                </Helmet >
                 <div className="hero-content flex-col md:flex-row-reverse">
                     <div className="text-center md:w-1/2 lg:text-left">
                         <h1 className="text-5xl font-bold">Login now!</h1>

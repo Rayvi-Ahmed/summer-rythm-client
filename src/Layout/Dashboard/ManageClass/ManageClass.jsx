@@ -1,4 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
+import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
@@ -53,6 +54,9 @@ const ManageClass = () => {
     }
     return (
         <div className="w-full ml-5">
+            < Helmet >
+                <title>Summer Rythm | Manage Class</title>
+            </Helmet >
             <div>
                 <h1 className="text-center text-4xl text-bold">Total Classes: {classes.length}</h1>
             </div>

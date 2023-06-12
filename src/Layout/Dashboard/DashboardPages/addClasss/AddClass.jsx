@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import Swal from "sweetalert2";
 import { AuthContext } from '../../../../Provider/AuthProvider/AuthProvider';
 import useSecuireAxios from '../../../../Hooks/SecuireAxios/useSecuireAxios';
+import { Helmet } from 'react-helmet-async';
 
 const igm_hosting_token = import.meta.env.VITE_IMAGE_UPLAOD_TOKEN
 const AddClass = () => {
@@ -10,6 +11,7 @@ const AddClass = () => {
     const { register, handleSubmit, reset } = useForm();
     const img_Hosting_Link = `https://api.imgbb.com/1/upload?key=${igm_hosting_token}`
     const { user } = useContext(AuthContext)
+
 
 
     const onSubmit = data => {
@@ -53,6 +55,9 @@ const AddClass = () => {
             <div className='text-center font-bold text-xl'>
                 <h1>Add classes</h1>
             </div>
+            < Helmet >
+                <title>Summer Rythm | Add Class</title>
+            </Helmet >
 
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="flex my-4 items-center justify-center gap-4">

@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import Swal from "sweetalert2";
 import useSecuireAxios from "../../../Hooks/SecuireAxios/useSecuireAxios";
+import { Helmet } from "react-helmet-async";
 
 const AllStudent = () => {
     const [axiosSecure] = useSecuireAxios()
@@ -56,6 +57,9 @@ const AllStudent = () => {
     return (
         <div className="w-full ml-5">
             <div>
+                < Helmet >
+                    <title>Summer Rythm | All Student</title>
+                </Helmet >
                 <h1 className="text-center text-4xl text-bold">Total Students: {students.length}</h1>
             </div>
             <div className="overflow-x-auto">

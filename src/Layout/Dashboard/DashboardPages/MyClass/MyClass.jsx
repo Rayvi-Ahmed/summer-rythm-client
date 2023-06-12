@@ -1,6 +1,7 @@
 import { FaDollarSign, FaMoneyBill, FaTrash } from "react-icons/fa";
 import useBooked from "../../../../Hooks/useBooked/useBooked";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const MyClass = () => {
     const [booked] = useBooked()
@@ -8,6 +9,10 @@ const MyClass = () => {
     return (
         <div className="w-full ml-5">
             <div>
+
+                < Helmet >
+                    <title>Summer Rythm | My Class</title>
+                </Helmet >
                 <h1 className="text-center text-4xl text-bold">My selected Classes: {booked.length}</h1>
             </div>
             <div className="overflow-x-auto">

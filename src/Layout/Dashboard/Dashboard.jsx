@@ -2,6 +2,7 @@ import { Link, Outlet } from "react-router-dom";
 import { FaUsers, FaRegAddressBook, FaHome, FaNewspaper, FaWallet, FaSchool, FaRegCalendarPlus, FaPlusCircle } from "react-icons/fa";
 import useAdmin from "../../Hooks/UseAdminHooks/useAdmin";
 import useInstructor from "../../Hooks/useInstrctor/useInstructor";
+import { Helmet } from "react-helmet-async";
 
 
 const Dashboard = () => {
@@ -10,6 +11,10 @@ const Dashboard = () => {
 
     return (
         <div className="drawer lg:drawer-open">
+            < Helmet >
+                <title>Summer Rythm | Dashboard</title>
+            </Helmet >
+
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
             <div className="drawer-content flex flex-col items-center justify-center">
                 <Outlet></Outlet>

@@ -5,8 +5,11 @@ import { AuthContext } from "../../../Provider/AuthProvider/AuthProvider";
 import useStudent from "../../../Hooks/useStudent/useStudent";
 
 const ApproveCladdCard = ({ course }) => {
-    console.log(course)
-
+    // const [students] = useStudent()
+    // const isAdmin = students.map(student => student.role === 'admin')
+    // const isInstructor = students.map(student => student.role === 'instructor')
+    // console.log(isAdmin, isInstructor)
+    // const isButtonDisabled = isAdmin || isInstructor;
     const { user } = useContext(AuthContext)
     const navigate = useNavigate()
     const location = useLocation()
@@ -81,14 +84,9 @@ const ApproveCladdCard = ({ course }) => {
                         <p>Price:${price}</p>
                     </div>
                     <div className="card-actions justify-center">
-                        <button onClick={() => handleClassBook(course)} className="btn btn-primary">Select</button>
 
+                        <button className="btn btn-primary" onClick={() => handleClassBook(course)}>select</button>
 
-                        {
-                            // student.role === 'admin' || student.role === 'instructor' ? <button className="btn btn-disabled">Select</button> :
-
-                            //     <button onClick={() => handleClassBook(course)} className="btn btn-primary">Select</button>
-                        }
                     </div>
                 </div >
 

@@ -2,6 +2,7 @@ import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import CheckPayment from "../CheckPayment/CheckPayment";
 import useBooked from "../../../../Hooks/useBooked/useBooked";
+import { Helmet } from "react-helmet-async";
 
 
 const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_KEY_PK)
@@ -12,6 +13,9 @@ const Payment = () => {
     return (
         <div>
             <div>
+                < Helmet >
+                    <title>Summer Rythm | Payment</title>
+                </Helmet >
                 <h1 className="text-4xl text-center font-bold m-8">Payment</h1>
             </div>
             <Elements stripe={stripePromise}>

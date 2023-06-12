@@ -5,6 +5,7 @@ import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
 import GoogleLogin from "../Login/GoogleLogin/GoogleLogin";
+import { Helmet } from "react-helmet-async";
 
 const SignUp = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
@@ -51,6 +52,9 @@ const SignUp = () => {
     }
     return (
         <div className="hero min-h-screen bg-base-200">
+            < Helmet >
+                <title>Summer Rythm | Sign Up</title>
+            </Helmet >
             <div className="hero-content flex-col lg:flex-row-reverse">
                 <div className="text-center lg:text-left">
                     <h1 className="text-5xl font-bold">Sign Up</h1>
