@@ -22,7 +22,7 @@ const SignUp = () => {
 
                 updateStudentProfile(data.name, data.photoURL)
                     .then(() => {
-                        const studentInfo = { name: data.name, email: data.email }
+                        const studentInfo = { name: data.name, image: data.PhotoURL, email: data.email }
                         fetch('http://localhost:5000/student', {
                             method: "POST",
                             headers: { "content-type": "application/json" },
