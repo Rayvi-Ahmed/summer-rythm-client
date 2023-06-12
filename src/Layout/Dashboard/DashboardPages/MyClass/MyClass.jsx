@@ -32,17 +32,17 @@ const MyClass = () => {
                                 <td>{user.seat}</td>
                                 <td>{user.name}</td>
                                 <td>${user.price}</td>
-                                <td><button className="btn btn-sm bg-purple-500 text-xl text-white font-semibold"><FaDollarSign></FaDollarSign></button></td>
 
-                                <Link to={'/payment'}>
+                                <Link to={'/dashboard/payment'}>
+                                    <td><button className="btn btn-sm bg-purple-500 text-xl text-white font-semibold"><FaDollarSign></FaDollarSign></button></td>
 
-                                    <td>
-
-                                        <button className="btn btn-sm bg-red-500 text-white text-xl "><FaTrash></FaTrash></button>
-
-                                    </td>
 
                                 </Link>
+
+                                <td>
+                                    <button className="btn btn-sm bg-red-500 text-white text-xl "><FaTrash></FaTrash></button>
+                                </td>
+
 
                             </tr>)
                         }

@@ -3,20 +3,23 @@ import { useContext, useEffect } from "react";
 import { useState } from "react";
 import { AuthContext } from "../../../../Provider/AuthProvider/AuthProvider";
 import useSecuireAxios from "../../../../Hooks/SecuireAxios/useSecuireAxios";
+import Swal from "sweetalert2";
+import './CheckPaymentStyle/CheckPaymentStyle.css'
 
 
-const CheckPayment = ({ cart, price }) => {
+const CheckPayment = ({ booked, price }) => {
     const stripe = useStripe();
     const elements = useElements();
     const { user } = useContext(AuthContext);
     const [axiosSecure] = useSecuireAxios()
     const [cardError, setCardError] = useState('');
     const [clientSecret, setClientSecret] = useState('');
+    console.log(clientSecret)
     const [processing, setProcessing] = useState(false);
     const [transactionId, setTransactionId] = useState('');
 
     useEffect(() => {
-        if (price > 0) {
+        {
             axiosSecure.post('/create-payment-intent', { price })
                 .then(res => {
                     console.log(res.data.clientSecret)
@@ -81,27 +84,30 @@ const CheckPayment = ({ cart, price }) => {
                 transactionId: paymentIntent.id,
                 price,
                 date: new Date(),
-                quantity: cart.length,
-                cartItems: cart.map(item => item._id),
-                menuItems: cart.map(item => item.menuItemId),
-                status: 'service pending',
-                itemNames: cart.map(item => item.name)
+                cartItems: booked.map(item => item._id),
+                seats: booked.map(item => item.seat),
+                courseName: booked.map(item => item.courseName),
+                InstructorNames: booked.map(item => item.name)
             }
             axiosSecure.post('/payments', payment)
                 .then(res => {
                     console.log(res.data);
                     if (res.data.result.insertedId) {
-                        // display confirm
+                        Swal.fire({
+                            position: 'top-end',
+                            icon: 'success',
+                            title: 'Your work has been saved',
+                            showConfirmButton: false,
+                            timer: 1500
+                        })
                     }
                 })
         }
-
-
     }
 
     return (
         <>
-            <form className="w-full m-8" onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit}>
                 <CardElement
                     options={{
                         style: {
@@ -118,10 +124,12 @@ const CheckPayment = ({ cart, price }) => {
                         },
                     }}
                 />
-                <button className="btn btn-warning btn-sm mt-4" type="submit" disabled={!stripe || !clientSecret || processing}>
+                <button className="btn btn-primary btn-sm mt-4" type="submit" disabled={!stripe}>
                     Pay
                 </button>
             </form>
+
+
             {cardError && <p className="text-red-600 ml-8">{cardError}</p>}
             {transactionId && <p className="text-green-500">Transaction complete with transactionId: {transactionId}</p>}
         </>
