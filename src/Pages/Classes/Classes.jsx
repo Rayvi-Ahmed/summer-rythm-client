@@ -11,7 +11,7 @@ const Classes = () => {
 
     return (
         <div>
-            <div className="my-5 ">  <h1 className="font bold text-3xl"> <span className="text-green-500 font bold text-3xl">Approved</span> classes</h1></div>
+            <div className="my-5 ">  <h1 className="font bold text-3xl"> <span className="text-green-500 font bold text-3xl">Available Classes</span>  | Summer Rythm</h1></div>
 
             <div className="container mx-auto grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 gap-3">
 
