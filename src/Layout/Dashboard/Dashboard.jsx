@@ -1,5 +1,5 @@
 import { Link, Outlet } from "react-router-dom";
-import { FaUsers, FaRegAddressBook, FaHome, FaNewspaper, FaWallet, FaSchool, FaRegCalendarPlus, FaPlusCircle } from "react-icons/fa";
+import { FaUsers, FaRegAddressBook, FaHome, FaNewspaper, FaWallet, FaSchool, FaCreditCard, FaPlusCircle } from "react-icons/fa";
 import useAdmin from "../../Hooks/UseAdminHooks/useAdmin";
 import useInstructor from "../../Hooks/useInstrctor/useInstructor";
 import { Helmet } from "react-helmet-async";
@@ -38,6 +38,7 @@ const Dashboard = () => {
 
                                 <li><Link to={'/dashboard/myclass'}><FaUsers></FaUsers>My Selected Classes</Link></li>
                                 <li><Link to={'/dashboard/enrollClass'}><FaWallet></FaWallet>My Enroll Classes</Link> </li>
+                                <li><Link to={'/dashboard/paymentHistory'}><FaCreditCard></FaCreditCard>Payment History</Link> </li>
 
 
                             </> &&
@@ -52,12 +53,12 @@ const Dashboard = () => {
 
                                     <li><Link to={'/dashboard/myclass'}><FaUsers></FaUsers>My Selected Classes</Link></li>
                                     <li><Link to={'/dashboard/enrollClass'}><FaWallet></FaWallet>My Enroll Classes</Link> </li>
+                                    <li><Link to={'/dashboard/paymentHistory'}><FaCreditCard></FaCreditCard>Payment History</Link> </li>
 
 
                                 </>
                     }
                     <li><Link to={'/'} ><FaHome></FaHome>Home</Link></li>
-                    <li><Link><FaNewspaper></FaNewspaper>Blogs</Link></li>
 
                 </ul>
 

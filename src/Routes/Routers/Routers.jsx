@@ -18,6 +18,8 @@ import ManageClass from "../../Layout/Dashboard/ManageClass/ManageClass";
 import InstructorClasses from "../../Layout/Dashboard/DashboardPages/InstructorClasses/InstructorClasses";
 import TopInstructor from "../../Pages/TopInstructor/TopInstructor";
 import EnrollClasses from "../../Layout/Dashboard/DashboardPages/EnrollClasses/EnrollClasses";
+import PaymentHistory from "../../Layout/Dashboard/DashboardPages/PaymentHistory/PaymentHistory";
+import TopClasses from "../../Pages/TopClasses/TopClasses";
 const router = createBrowserRouter([
     {
         path: "/",
@@ -48,6 +50,10 @@ const router = createBrowserRouter([
             {
                 path: '/topInstructor',
                 element: <TopInstructor></TopInstructor>
+            },
+            {
+                path: '/topClasses',
+                element: <TopClasses></TopClasses>
             }
         ]
     },
@@ -88,6 +94,10 @@ const router = createBrowserRouter([
             {
                 path: 'enrollClass',
                 element: <EnrollClasses></EnrollClasses>
+            },
+            {
+                path: 'paymentHistory',
+                element: <PaymentHistory></PaymentHistory>
             }
         ]
     }

@@ -13,6 +13,7 @@ const Payment = () => {
     const price = parseFloat(booking.price).toFixed(2)
     // const from = location?.state?.state
     // console.log(from)
+
     // const price = parseFloat(from?.price?.toFixed(2))
     return (
         <div>

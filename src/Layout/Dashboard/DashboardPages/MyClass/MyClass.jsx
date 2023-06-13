@@ -26,7 +26,7 @@ const MyClass = () => {
                             <th>Instructor Name</th>
                             <th>Price</th>
                             <th>Pay</th>
-                            <th>Delete</th>
+
                         </tr>
                     </thead>
                     <tbody>
@@ -43,12 +43,6 @@ const MyClass = () => {
 
 
                                 </Link>
-
-                                <td>
-                                    <button className="btn btn-sm bg-red-500 text-white text-xl "><FaTrash></FaTrash></button>
-                                </td>
-
-
                             </tr>)
                         }
 

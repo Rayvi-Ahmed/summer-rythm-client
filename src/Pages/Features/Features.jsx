@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Features = () => {
     return (
-        <section className="p-4 lg:p-8 bg-gray-100 text-gray-800">
+        <section className="p-4 lg:p-8  text-gray-800 mt-8">
             <div className="container mx-auto space-y-12">
                 <div className="flex flex-col overflow-hidden rounded-md shadow-sm lg:flex-row">
                     <img src="https://img.freepik.com/free-photo/portrait-attractive-hispanic-brunette-teaching-music-group-preschool-pupils_662251-2635.jpg?w=740&t=st=1686584682~exp=1686585282~hmac=7dab9ff8eef05a823b842a731e54641575416a10bd1eff4e2e98b5cd0d7ab6e5" alt="" className="h-80 bg-gray-500 aspect-video" />
