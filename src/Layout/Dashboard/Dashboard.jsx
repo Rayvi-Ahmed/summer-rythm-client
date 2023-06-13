@@ -37,7 +37,7 @@ const Dashboard = () => {
                             <>
 
                                 <li><Link to={'/dashboard/myclass'}><FaUsers></FaUsers>My Selected Classes</Link></li>
-                                <li><Link to={'/dashboard/payment'}><FaWallet></FaWallet>My Enroll Classes</Link> </li>
+                                <li><Link to={'/dashboard/enrollClass'}><FaWallet></FaWallet>My Enroll Classes</Link> </li>
 
 
                             </> &&
@@ -51,7 +51,7 @@ const Dashboard = () => {
                                 <>
 
                                     <li><Link to={'/dashboard/myclass'}><FaUsers></FaUsers>My Selected Classes</Link></li>
-                                    <li><Link to={'/dashboard/payment'}><FaWallet></FaWallet>My Enroll Classes</Link> </li>
+                                    <li><Link to={'/dashboard/enrollClass'}><FaWallet></FaWallet>My Enroll Classes</Link> </li>
 
 
                                 </>
