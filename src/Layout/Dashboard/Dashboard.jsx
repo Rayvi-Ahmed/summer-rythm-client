@@ -44,7 +44,7 @@ const Dashboard = () => {
 
                                 isInstructor ? <>
                                 <li><Link to={'/dashboard/AddClass'}><FaPlusCircle></FaPlusCircle> Add Class</Link></li>
-                                <li><Link to={'/dashboard/myClass'}><FaRegAddressBook></FaRegAddressBook> My classes</Link> </li>
+                                <li><Link to={'/dashboard/instructorClass'}><FaRegAddressBook></FaRegAddressBook> My classes</Link> </li>
 
                                 <div className="divider"></div>
                             </> :

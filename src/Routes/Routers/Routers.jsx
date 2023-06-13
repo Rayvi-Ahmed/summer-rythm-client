@@ -15,6 +15,8 @@ import MyClass from "../../Layout/Dashboard/DashboardPages/MyClass/MyClass";
 import AllStudent from "../../Layout/Dashboard/AllStudent/AllStudent";
 import Payment from "../../Layout/Dashboard/DashboardPages/Payment/Payment";
 import ManageClass from "../../Layout/Dashboard/ManageClass/ManageClass";
+import InstructorClasses from "../../Layout/Dashboard/DashboardPages/InstructorClasses/InstructorClasses";
+import TopInstructor from "../../Pages/TopInstructor/TopInstructor";
 const router = createBrowserRouter([
     {
         path: "/",
@@ -42,6 +44,10 @@ const router = createBrowserRouter([
                 path: '/instructor',
                 element: <Instructors></Instructors>
             },
+            {
+                path: '/topInstructor',
+                element: <TopInstructor></TopInstructor>
+            }
         ]
     },
     {
@@ -66,12 +72,17 @@ const router = createBrowserRouter([
                 element: <AllStudent></AllStudent>
             },
             {
-                path: 'payment',
-                element: <Payment></Payment>
+                path: 'payment/:id',
+                element: <Payment></Payment>,
+                loader: ({ params }) => fetch(`http://localhost:5000/booked/${params.id}`)
             },
             {
                 path: 'manageClass',
                 element: <ManageClass></ManageClass>
+            },
+            {
+                path: 'instructorClass',
+                element: <InstructorClasses></InstructorClasses>
             }
         ]
     }

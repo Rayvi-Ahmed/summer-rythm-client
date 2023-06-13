@@ -1,5 +1,4 @@
 import ApproveCladdCard from "./ApproveCladdCard/ApproveCladdCard";
-import Swal from "sweetalert2";
 import useClass from "../../Hooks/useClass/useClass";
 import useStudent from "../../Hooks/useStudent/useStudent";
 import { Helmet } from "react-helmet-async";

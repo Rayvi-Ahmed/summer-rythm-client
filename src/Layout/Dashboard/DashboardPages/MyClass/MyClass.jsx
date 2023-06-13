@@ -1,11 +1,11 @@
-import { FaDollarSign, FaMoneyBill, FaTrash } from "react-icons/fa";
+import { FaDollarSign, FaTrash } from "react-icons/fa";
 import useBooked from "../../../../Hooks/useBooked/useBooked";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 
 const MyClass = () => {
     const [booked] = useBooked()
-    console.log(booked)
+
     return (
         <div className="w-full ml-5">
             <div>
@@ -38,7 +38,7 @@ const MyClass = () => {
                                 <td>{user.name}</td>
                                 <td>${user.price}</td>
 
-                                <Link to={'/dashboard/payment'}>
+                                <Link to={`/dashboard/payment/${user._id}`} state={{ state: user }}>
                                     <td><button className="btn btn-sm bg-purple-500 text-xl text-white font-semibold"><FaDollarSign></FaDollarSign></button></td>
 
 
