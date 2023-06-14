@@ -29,7 +29,7 @@ const TopClasses = () => {
     return (
         <div>
             <div className="my-5 ">  <h1 className="font-bold text-3xl"> <span className="text-blue-700 font-semibold text-4xl">Our Top Classes</span></h1></div>
-            <motion.div variants={cardVariants} initial="hidden" animate="visible" className="container mx-auto grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 gap-3">
+            <motion.div variants={cardVariants} initial="hidden" animate="visible" className="container mx-auto grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 gap-3">
 
                 {
                     topClasses.map(top => <TopClassesData

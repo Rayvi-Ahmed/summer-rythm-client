@@ -2,6 +2,7 @@ import { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaUser } from 'react-icons/fa'
 import { AuthContext } from '../../Provider/AuthProvider/AuthProvider';
+import logo from '../../Images/Brand-Logo.png'
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
@@ -16,7 +17,7 @@ const Navbar = () => {
 
     return (
         <div className="text-gray-800">
-            <div className="px-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
+            <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
                 <div className="relative flex items-center justify-between">
                     <a
                         href="/"
@@ -24,7 +25,7 @@ const Navbar = () => {
                         title="Company"
                         className="inline-flex items-center"
                     >
-                        <img className="w-10" src="" alt="" />
+                        <img className="w-10" src={logo} alt="" />
                         <span className="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
                             Summer Rythm
                         </span>

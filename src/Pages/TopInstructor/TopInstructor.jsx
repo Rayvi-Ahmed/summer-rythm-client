@@ -10,7 +10,7 @@ const TopInstructor = () => {
     return (
         <div>
             <div className="my-5 ">  <h1 className="font-bold text-3xl"> <span className="text-cyan-500 font bold text-4xl">Popular Instructors</span></h1></div>
-            <div className="container mx-auto grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 gap-3">
+            <div className="container mx-auto grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 gap-3">
 
                 {
                     instructors.map(instructor => <TopInstructorData

@@ -23,6 +23,7 @@ import TopClasses from "../../Pages/TopClasses/TopClasses";
 import PrivateRoute from "../PrivateRoutes/PrivateRoute";
 import AdminRoute from "../AdminRoute/AdminRoute";
 import InstructorRoute from "./InstructorRoute/InstructorRoute";
+import Feedback from "../../Layout/Dashboard/ManageClass/Feedback/Feedback";
 const router = createBrowserRouter([
     {
         path: "/",
@@ -57,7 +58,8 @@ const router = createBrowserRouter([
             {
                 path: '/topClasses',
                 element: <TopClasses></TopClasses>
-            }
+            },
+
         ]
     },
     {
@@ -101,6 +103,10 @@ const router = createBrowserRouter([
             {
                 path: 'paymentHistory',
                 element: <PaymentHistory></PaymentHistory>
+            },
+            {
+                path: 'feedback',
+                element: <Feedback></Feedback>
             }
         ]
     }

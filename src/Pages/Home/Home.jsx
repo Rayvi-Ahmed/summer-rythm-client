@@ -6,8 +6,9 @@ import TopClasses from "../TopClasses/TopClasses";
 
 
 const Home = () => {
+    const defaultDark = window.matchMedia(('prefers-color')).matches
     return (
-        <div>
+        <div >
             < Helmet >
                 <title>Summer Rythm | Home</title>
             </Helmet >

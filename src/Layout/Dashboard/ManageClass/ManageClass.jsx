@@ -100,7 +100,12 @@ const ManageClass = () => {
                                 }</td>
 
 
-                                <td>{cls.feedback}</td>
+                                <td>
+                                    <Link to={'/dashboard/feedback'}>
+                                        <button className="btn btn-warning btn-sm">Send Feedback</button>
+                                    </Link>
+
+                                </td>
 
 
 
