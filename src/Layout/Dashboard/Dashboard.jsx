@@ -4,9 +4,9 @@ import useAdmin from "../../Hooks/UseAdminHooks/useAdmin";
 import useInstructor from "../../Hooks/useInstrctor/useInstructor";
 import { Helmet } from "react-helmet-async";
 
-
 const Dashboard = () => {
     const [isAdmin] = useAdmin()
+    console.log(isAdmin)
     const [isInstructor] = useInstructor()
 
     return (
@@ -54,7 +54,6 @@ const Dashboard = () => {
                                     <li><Link to={'/dashboard/myclass'}><FaUsers></FaUsers>My Selected Classes</Link></li>
                                     <li><Link to={'/dashboard/enrollClass'}><FaWallet></FaWallet>My Enroll Classes</Link> </li>
                                     <li><Link to={'/dashboard/paymentHistory'}><FaCreditCard></FaCreditCard>Payment History</Link> </li>
-
 
                                 </>
                     }

@@ -9,7 +9,7 @@ const useBooked = () => {
     const [axiosSecure] = useSecuireAxios();
     const { refetch, data: booked = [] } = useQuery({
         queryKey: ['booked', user?.email],
-        enabled: !loading,
+        enabled: !loading && !!user?.email && !!localStorage.getItem("user-token"),
         queryFn: async () => {
             const res = await axiosSecure(`/booked?email=${user?.email}`)
 
@@ -17,7 +17,7 @@ const useBooked = () => {
         },
     })
 
-    return [booked, refetch]
+    return [booked, refetch, loading]
 
 }
 export default useBooked;

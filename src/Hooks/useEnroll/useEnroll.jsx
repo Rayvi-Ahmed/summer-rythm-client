@@ -9,7 +9,7 @@ const useEnroll = () => {
     const [axiosSecure] = useSecuireAxios();
     const { refetch, data: payments = [] } = useQuery({
         queryKey: ['payments', user?.email],
-        enabled: !loading,
+        enabled: !loading && !!user?.email && !!localStorage.getItem("user-token"),
         queryFn: async () => {
             const res = await axiosSecure(`/payments?email=${user?.email}`)
 

@@ -16,5 +16,4 @@ const useAllInstructors = () => {
 
     return [allInstructors, loading]
 };
-
 export default useAllInstructors;

@@ -13,7 +13,6 @@ const useSecuireAxios = () => {
     const navigate = useNavigate();
 
 
-
     useEffect(() => {
         axiosSecure.interceptors.request.use((config) => {
             const token = localStorage.getItem('user-token');

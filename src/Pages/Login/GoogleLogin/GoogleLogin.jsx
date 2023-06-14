@@ -17,7 +17,7 @@ const GoogleLogin = () => {
                 const loggedInUser = result.user;
                 console.log(loggedInUser);
                 const studentInfo = { name: loggedInUser.displayName, email: loggedInUser.email }
-                fetch('http://localhost:5000/student', {
+                fetch('https://y-alpha-two.vercel.app/student', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
