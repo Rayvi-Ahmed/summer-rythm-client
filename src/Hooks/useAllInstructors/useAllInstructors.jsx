@@ -5,7 +5,7 @@ const useAllInstructors = () => {
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
-        fetch('http://localhost:5000/student/instructor')
+        fetch('https://y-alpha-two.vercel.app/student/instructor')
             .then(res => res.json())
             .then(data => {
                 const allInstructors = data.filter(instructor => instructor.role === 'instructor')

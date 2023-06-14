@@ -47,7 +47,7 @@ const AuthProvider = ({ children }) => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser);
             if (currentUser) {
-                axios.post('http://localhost:5000/jwt', { email: currentUser.email })
+                axios.post('https://y-alpha-two.vercel.app/jwt', { email: currentUser.email })
                     .then(data => {
                         console.log(data.data.token)
                         localStorage.setItem('user-token', data.data.token)

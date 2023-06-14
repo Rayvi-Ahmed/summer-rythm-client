@@ -40,16 +40,6 @@ const Navbar = () => {
                                 Home
                             </a>
                         </li>
-                        <li>
-                            <a
-                                href="/blog"
-                                aria-label="Blog"
-                                title="Blog"
-                                className="font-medium tracking-wide text-gray-800  transition-colors duration-200 hover:text-blue-700"
-                            >
-                                Blog
-                            </a>
-                        </li>
 
                         <Link to={'/instructor'}>
                             <a

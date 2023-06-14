@@ -15,7 +15,7 @@ const AllStudent = () => {
     })
 
     const handleupdateAdmin = id => {
-        fetch(`http://localhost:5000/student/admin/${id}`, {
+        fetch(`https://y-alpha-two.vercel.app/student/admin/${id}`, {
             method: "PATCH",
         })
             .then(res => res.json())
@@ -34,7 +34,7 @@ const AllStudent = () => {
             })
     }
     const handleupdateInstructor = id => {
-        fetch(`http://localhost:5000/student/instructor/${id}`, {
+        fetch(`https://y-alpha-two.vercel.app/instructor/${id}`, {
             method: "PATCH",
         })
             .then(res => res.json())

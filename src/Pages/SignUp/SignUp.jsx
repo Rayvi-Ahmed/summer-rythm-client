@@ -2,7 +2,7 @@
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
 import GoogleLogin from "../Login/GoogleLogin/GoogleLogin";
 import { Helmet } from "react-helmet-async";
@@ -24,7 +24,7 @@ const SignUp = () => {
                 updateStudentProfile(data.name, data.photoURL)
                     .then(() => {
                         const studentInfo = { name: data.name, image: data.PhotoURL, email: data.email }
-                        fetch('http://localhost:5000/student', {
+                        fetch('https://y-alpha-two.vercel.app/student', {
                             method: "POST",
                             headers: { "content-type": "application/json" },
                             body: JSON.stringify(studentInfo)
@@ -58,7 +58,7 @@ const SignUp = () => {
             <div className="hero-content flex-col lg:flex-row-reverse">
                 <div className="text-center lg:text-left">
                     <h1 className="text-5xl font-bold">Sign Up</h1>
-                    <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+                    <p className="py-6">Please create an account the Summer rythm classes to perchase your dream music platform.Go invest your Quality time with our most expertise music based courses</p>
                 </div>
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                     <form onSubmit={handleSubmit(onSubmit)} className="card-body">
@@ -100,6 +100,7 @@ const SignUp = () => {
                             <button className="btn btn-primary">Sign Up</button>
                         </div>
                     </form>
+                    <p><small>Already have an account ? <Link to="/login">please login</Link> </small></p>
                     <GoogleLogin></GoogleLogin>
 
                 </div>

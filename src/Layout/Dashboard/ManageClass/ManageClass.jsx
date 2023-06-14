@@ -8,12 +8,12 @@ const ManageClass = () => {
 
         queryKey: ['classes'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/classes')
+            const res = await fetch('https://y-alpha-two.vercel.app/classes')
             return res.json()
         }
     })
     const handleupdateApproved = id => {
-        fetch(`http://localhost:5000/classes/approve/${id}`, {
+        fetch(`https://y-alpha-two.vercel.app/classes/approve/${id}`, {
             method: "PATCH",
         })
             .then(res => res.json())
@@ -33,7 +33,7 @@ const ManageClass = () => {
 
     }
     const handleupdateDeny = id => {
-        fetch(`http://localhost:5000/classes/deny/${id}`, {
+        fetch(`https://y-alpha-two.vercel.app/classes/deny/${id}`, {
             method: "PATCH",
         })
             .then(res => res.json())

@@ -21,7 +21,7 @@ const ApproveCladdCard = ({ course }) => {
         if (user && user.email) {
             const addCouese = { courseId: _id, name, courseName, Image: Imge, seat, price, email: user.email }
 
-            fetch('http://localhost:5000/booked', {
+            fetch('https://y-alpha-two.vercel.app/booked', {
                 method: "POST",
                 headers: { "content-type": "application/json" },
                 body: JSON.stringify(addCouese)

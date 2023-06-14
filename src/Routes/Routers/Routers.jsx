@@ -20,6 +20,9 @@ import TopInstructor from "../../Pages/TopInstructor/TopInstructor";
 import EnrollClasses from "../../Layout/Dashboard/DashboardPages/EnrollClasses/EnrollClasses";
 import PaymentHistory from "../../Layout/Dashboard/DashboardPages/PaymentHistory/PaymentHistory";
 import TopClasses from "../../Pages/TopClasses/TopClasses";
+import PrivateRoute from "../PrivateRoutes/PrivateRoute";
+import AdminRoute from "../AdminRoute/AdminRoute";
+import InstructorRoute from "./InstructorRoute/InstructorRoute";
 const router = createBrowserRouter([
     {
         path: "/",
@@ -59,7 +62,7 @@ const router = createBrowserRouter([
     },
     {
         path: 'dashboard',
-        element: <Dashboard></Dashboard>,
+        element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
         children: [
             {
                 path: 'selectedClass',
@@ -67,7 +70,7 @@ const router = createBrowserRouter([
             },
             {
                 path: 'addClass',
-                element: <AddClass></AddClass>
+                element: <InstructorRoute><AddClass></AddClass></InstructorRoute>
 
             },
             {
@@ -76,20 +79,20 @@ const router = createBrowserRouter([
             },
             {
                 path: 'allStudent',
-                element: <AllStudent></AllStudent>
+                element: <AdminRoute><AllStudent></AllStudent></AdminRoute>
             },
             {
                 path: 'payment/:id',
                 element: <Payment></Payment>,
-                loader: ({ params }) => fetch(`http://localhost:5000/booked/${params.id}`)
+                loader: ({ params }) => fetch(`https://y-alpha-two.vercel.app/booked/${params.id}`)
             },
             {
                 path: 'manageClass',
-                element: <ManageClass></ManageClass>
+                element: <AdminRoute><ManageClass></ManageClass></AdminRoute>
             },
             {
                 path: 'instructorClass',
-                element: <InstructorClasses></InstructorClasses>
+                element: <InstructorRoute> <InstructorClasses></InstructorClasses></InstructorRoute>
             },
             {
                 path: 'enrollClass',

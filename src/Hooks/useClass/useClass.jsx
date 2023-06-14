@@ -5,7 +5,7 @@ const useClass = () => {
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
-        fetch('http://localhost:5000/classes')
+        fetch('https://y-alpha-two.vercel.app/classes')
             .then(res => res.json())
             .then(data => {
                 const approveClasses = data.filter(cls => cls.status === 'approve')

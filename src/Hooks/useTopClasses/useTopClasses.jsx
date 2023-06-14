@@ -5,7 +5,7 @@ const useTopClasses = () => {
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
-        fetch('http://localhost:5000/classes')
+        fetch('https://y-alpha-two.vercel.app/classes')
             .then(res => res.json())
             .then(data => {
                 const popularClass = data.filter(cls => cls.category === 'popular')
@@ -13,7 +13,6 @@ const useTopClasses = () => {
                 setLoading(false)
             })
     }, [])
-
     return [popularClass, loading]
 };
 
