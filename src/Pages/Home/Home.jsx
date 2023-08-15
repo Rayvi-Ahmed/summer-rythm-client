@@ -3,6 +3,7 @@ import Features from "../Features/Features";
 import Carusel from "./Carusel/Carusel";
 import TopInstructor from "../TopInstructor/TopInstructor";
 import TopClasses from "../TopClasses/TopClasses";
+import Testimonial from "./Testimonial/Testimonial";
 
 
 const Home = () => {
@@ -16,6 +17,7 @@ const Home = () => {
             <TopInstructor></TopInstructor>
             <Features></Features>
             <TopClasses></TopClasses>
+            <Testimonial></Testimonial>
         </div>
     );
 };

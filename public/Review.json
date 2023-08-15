@@ -1,0 +1,37 @@
+[
+    {
+        "id": 1,
+        "studentName": "John Doe",
+        "course": "Introduction to React",
+        "rating": 4.5,
+        "review": "I really enjoyed the course. The content was well-structured and the explanations were clear. I would have given it a 5-star rating if there were more hands-on coding exercises."
+    },
+    {
+        "id": 2,
+        "studentName": "Jane Smith",
+        "course": "Advanced React Techniques",
+        "rating": 5,
+        "review": "This course exceeded my expectations! The instructor's deep dive into advanced concepts was fantastic. The real-world examples helped solidify my understanding."
+    },
+    {
+        "id": 3,
+        "studentName": "Alex Johnson",
+        "course": "React Project Showcase",
+        "rating": 4,
+        "review": "The project showcase was a great way to apply what we learned. The only downside was that some projects were more complex than others, making it a bit uneven."
+    },
+    {
+        "id": 4,
+        "studentName": "Emily Brown",
+        "course": "React UI Design",
+        "rating": 3.5,
+        "review": "The UI Design course had potential, but it lacked in-depth coverage of responsive design techniques. I'd love to see more examples focused on mobile devices."
+    },
+    {
+        "id": 5,
+        "studentName": "Michael Lee",
+        "course": "React State Management",
+        "rating": 5,
+        "review": "A comprehensive guide to state management in React. The Redux section was a highlight for me. I feel much more confident in managing complex application states now."
+    }
+]
