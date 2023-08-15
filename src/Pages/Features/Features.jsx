@@ -1,12 +1,39 @@
 import { Link } from "react-router-dom";
+import { useInView } from "react-intersection-observer";
+import { motion, useAnimation } from "framer-motion"
+import { useEffect } from "react";
 
 
 const Features = () => {
+    const { ref, inView } = useInView(
+        {
+            threshold: 0.2
+        }
+    );
+    const animation = useAnimation();
+
+    useEffect(() => {
+        if (inView) {
+            animation.start({
+                x: 0,
+                transition: {
+                    type: 'spring', duration: 2, bounce: 0.3
+                }
+
+            })
+        }
+        if (!inView) {
+            animation.start({
+                x: '-100vw'
+            })
+        }
+
+    }, [inView])
     return (
-        <div>
+        <div ref={ref}>
             <div className="my-5 ">  <h1 className="font-bold text-3xl"> <span className="text-cyan-500 font bold text-4xl">Features</span></h1></div>
 
-            <section className="p-4 lg:p-8  text-gray-800 mt-8">
+            <motion.section animate={animation} className="p-4 lg:p-8  text-gray-800 mt-8">
                 <div className="container mx-auto space-y-12">
                     <div className="flex flex-col overflow-hidden rounded-md shadow-sm lg:flex-row">
                         <img src="https://img.freepik.com/free-photo/portrait-attractive-hispanic-brunette-teaching-music-group-preschool-pupils_662251-2635.jpg?w=740&t=st=1686584682~exp=1686585282~hmac=7dab9ff8eef05a823b842a731e54641575416a10bd1eff4e2e98b5cd0d7ab6e5" alt="" className="h-80 bg-gray-500 aspect-video" />
@@ -40,7 +67,7 @@ const Features = () => {
                         </div>
                     </div>
                 </div>
-            </section>
+            </motion.section>
         </div>
     );
 };

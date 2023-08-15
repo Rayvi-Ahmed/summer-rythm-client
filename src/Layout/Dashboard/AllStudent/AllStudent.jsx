@@ -34,7 +34,7 @@ const AllStudent = () => {
             })
     }
     const handleupdateInstructor = id => {
-        fetch(`https://y-alpha-two.vercel.app/instructor/${id}`, {
+        fetch(`https://y-alpha-two.vercel.app/student/instructor/${id}`, {
             method: "PATCH",
         })
             .then(res => res.json())

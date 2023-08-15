@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const TopInstructorData = ({ instructor }) => {
     const { name, image, email, role } = instructor
     return (
-        <div className="max-w-xs rounded-md shadow-md bg-gray-50 text-gray-800">
+        <div className="max-w-xs rounded-md shadow-md bg-gray-50 text-gray-800 transform hover:scale-105 duration-500">
             <img src={image} alt="" className="object-cover object-center w-full rounded-t-md h-72 bg-gray-500" />
             <div className="flex flex-col justify-between p-6 space-y-8">
                 <div className="space-y-2">

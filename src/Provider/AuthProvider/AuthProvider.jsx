@@ -45,21 +45,9 @@ const AuthProvider = ({ children }) => {
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+            console.log('inside auth state changed', currentUser);
             setUser(currentUser);
-            if (currentUser) {
-                axios.post('https://y-alpha-two.vercel.app/jwt', { email: currentUser.email })
-                    .then(data => {
-                        console.log(data.data.token)
-                        localStorage.setItem('user-token', data.data.token)
-                        setLoading(false);
-                    })
-            }
-            else {
-                localStorage.removeItem('user-token')
-
-            }
             setLoading(false);
-
         });
 
         return () => {

@@ -5,11 +5,9 @@ import { AuthContext } from '../../Provider/AuthProvider/AuthProvider';
 
 const useStudent = () => {
     const [axiosSecure] = useSecuireAxios()
-    const { user, loading } = useContext(AuthContext)
     const { data: students = [], refetch } = useQuery({
 
         queryKey: ['student'],
-        enabled: !loading && !!user?.email && !!localStorage.getItem("user-token"),
         queryFn: async () => {
             const res = await axiosSecure.get('/student')
             return res.data
