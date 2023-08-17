@@ -4,6 +4,8 @@ import Carusel from "./Carusel/Carusel";
 import TopInstructor from "../TopInstructor/TopInstructor";
 import TopClasses from "../TopClasses/TopClasses";
 import Testimonial from "./Testimonial/Testimonial";
+import { Parallax } from "swiper/modules";
+import HighClass from "./HighClass/HighClass";
 
 
 const Home = () => {
@@ -17,6 +19,7 @@ const Home = () => {
             <TopInstructor></TopInstructor>
             <Features></Features>
             <TopClasses></TopClasses>
+            <HighClass></HighClass>
             <Testimonial></Testimonial>
         </div>
     );

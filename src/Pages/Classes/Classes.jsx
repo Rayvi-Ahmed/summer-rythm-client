@@ -16,7 +16,7 @@ const Classes = () => {
                 <title>Summer Rythm | Classes</title>
             </Helmet >
 
-            <div className="container mx-auto grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 gap-3">
+            <div className="container mx-auto grid grid-cols-1 lg:grid-cols-3 gap-3">
 
                 {
                     approveClasses.map(course => <ApproveCladdCard

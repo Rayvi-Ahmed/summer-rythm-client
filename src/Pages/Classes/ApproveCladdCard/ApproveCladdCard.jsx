@@ -74,8 +74,8 @@ const ApproveCladdCard = ({ course }) => {
             </div>
         </div > :
 
-            <div className="card w-full h-100 bg-base-100 shadow-md rounded-none">
-                <figure><img src={Imge} alt="Shoes" /></figure>
+            <div className="card w-full h-100 bg-base-100 shadow-md rounded-none transform hover:scale-105 duration-500">
+                <figure><img src={Imge} alt="class" /></figure>
                 <div className="card-body">
                     <div className="text-start">
                         <h2 className="card-title">{courseName}</h2>
